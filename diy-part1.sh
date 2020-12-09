@@ -18,3 +18,8 @@ sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # fullcone NAT patch
 git clone -b master --single-branch https://github.com/LGA1150/openwrt-fullconenat package/fullconenat
+# https://github.com/LGA1150/openwrt-fullconenat/issues/4
+sed -i 's/SUBDIRS/M/' package/fullconenat/Makefile
+# following two lines need to be added in iptables
+# iptables -t nat -A POSTROUTING -o eth0 -j FULLCONENAT
+# iptables -t nat -A PREROUTING -i eth0 -j FULLCONENAT
