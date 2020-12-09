@@ -15,3 +15,6 @@ sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
 #sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
+
+# fullcone NAT patch
+git clone -b master --single-branch https://github.com/LGA1150/openwrt-fullconenat package/fullconenat
